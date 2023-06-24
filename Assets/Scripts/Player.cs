@@ -40,4 +40,9 @@ public class Player : MonoBehaviour
             spriter.flipX = inputVec.x < 0;
         }
     }
+
+    public void IncreaseSpeed()
+    {
+        speed += 0.2f;
+    }
 }

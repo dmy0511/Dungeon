@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class StartBtn : MonoBehaviour
 {
     public void SceneLoad(string Title)
-        {
-            SceneManager.LoadScene(Title);
-        }
+    {
+        SceneManager.LoadScene(Title);
+    }
 }
