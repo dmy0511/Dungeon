@@ -7,6 +7,7 @@ TagManager:
   - Big_Zombie
   - Box
   - Key
+  - Big_Demon
   layers:
   - Default
   - TransparentFX

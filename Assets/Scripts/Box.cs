@@ -49,4 +49,10 @@ public class Box : MonoBehaviour
         boxPanel.SetActive(false);
         playerMovement.IncreaseSpeed();
     }
+    
+    public void HealHp()
+    {
+        boxPanel.SetActive(false);
+        playerMovement.HealHp();
+    }
 }

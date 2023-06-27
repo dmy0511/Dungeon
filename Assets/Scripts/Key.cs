@@ -20,4 +20,9 @@ public class Key : MonoBehaviour
     {
         SceneManager.LoadScene(Stage1);
     }
+    
+    public void yes1(string Stage2)
+    {
+        SceneManager.LoadScene(Stage2);
+    }
 }

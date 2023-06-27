@@ -57,17 +57,28 @@ public class Player : MonoBehaviour
                 Die();
             }
         }
-
-        //초록 물약을 사용하면 체력 1 회복
-        //hp += 1.0f;
-        //if (5.0f < hp)
-        //    hp = 5.0f;
-        //HpImgUpdate();
+        else if (collision.gameObject.tag == "Big_Demon")
+        {
+            hp -= 1.0f;
+            HpImgUpdate();
+            if (hp <= 0.0f) //사망처리
+            {
+                Die();
+            }
+        }
     }
 
     public void IncreaseSpeed()
     {
         speed += 0.2f;
+    }
+
+    public void HealHp()
+    {
+        hp += 1.0f;
+        if (5.0f < hp)
+            hp = 5.0f;
+        HpImgUpdate();
     }
 
     void Die()
