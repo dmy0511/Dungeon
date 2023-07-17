@@ -7,18 +7,27 @@ using UnityEngine;
 public class Camera : MonoBehaviour
 {
     public float smoothSpeed = 2;
-
     private Transform target;
-    
-    private void Start()
+
+    private void Awake()
     {
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            target = player.transform;
+        }
+        else
+        {
+            Debug.LogWarning("Player object not found in the scene. Make sure to tag the player object with 'Player' tag.");
+        }
     }
 
     private void LateUpdate()
     {
-        transform.position = Vector3.Lerp(transform.position,
-            new Vector3(target.position.x, target.position.y, -10),
-            smoothSpeed * Time.deltaTime);
+        if (target != null)
+        {
+            Vector3 desiredPosition = new Vector3(target.position.x, target.position.y, -10);
+            transform.position = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
+        }
     }
 }

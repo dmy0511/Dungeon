@@ -19,10 +19,12 @@ public class Key : MonoBehaviour
     public void yes(string Stage1)
     {
         SceneManager.LoadScene(Stage1);
+        Time.timeScale = 1.0f;
     }
     
     public void yes1(string Stage2)
     {
         SceneManager.LoadScene(Stage2);
+        Time.timeScale = 1.0f;
     }
 }

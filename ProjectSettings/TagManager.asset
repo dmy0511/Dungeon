@@ -8,6 +8,7 @@ TagManager:
   - Box
   - Key
   - Big_Demon
+  - Fire
   layers:
   - Default
   - TransparentFX
@@ -62,6 +63,9 @@ TagManager:
     locked: 0
   - name: Monster
     uniqueID: 2528752183
+    locked: 0
+  - name: Fire
+    uniqueID: 13989519
     locked: 0
   - name: Player
     uniqueID: 1109031077
