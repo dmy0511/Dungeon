@@ -5,7 +5,7 @@ using UnityEngine;
 public class Fire : MonoBehaviour
 {
     public float range = 10.0f;
-    public float pushForce = 10.0f;
+    public float pushForce = 1000.0f;
 
     private void Update()
     {

@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     SpriteRenderer spriter;
     Animator anim;
 
-    float hp = 5.0f;
+    float hp = 3.0f;
     public Image[] hpImage;
 
     void Awake()
@@ -52,7 +52,7 @@ public class Player : MonoBehaviour
         {
             hp -= 0.5f;
             HpImgUpdate();
-            if (hp <= 0.0f) //荤噶贸府
+            if (hp <= 0.0f)
             {
                 Die();
             }
@@ -61,7 +61,7 @@ public class Player : MonoBehaviour
         {
             hp -= 1.0f;
             HpImgUpdate();
-            if (hp <= 0.0f) //荤噶贸府
+            if (hp <= 0.0f)
             {
                 Die();
             }
@@ -76,8 +76,8 @@ public class Player : MonoBehaviour
     public void HealHp()
     {
         hp += 1.0f;
-        if (5.0f < hp)
-            hp = 5.0f;
+        if (3.0f < hp)
+            hp = 3.0f;
         HpImgUpdate();
     }
 

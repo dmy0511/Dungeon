@@ -18,7 +18,7 @@ public class Camera : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Player object not found in the scene. Make sure to tag the player object with 'Player' tag.");
+            Debug.LogWarning("Error");
         }
     }
 
