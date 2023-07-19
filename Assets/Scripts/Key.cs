@@ -27,4 +27,10 @@ public class Key : MonoBehaviour
         SceneManager.LoadScene(Stage2);
         Time.timeScale = 1.0f;
     }
+    
+    public void yes2(string Stage3)
+    {
+        SceneManager.LoadScene(Stage3);
+        Time.timeScale = 1.0f;
+    }
 }

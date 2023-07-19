@@ -16,6 +16,10 @@ public class Player : MonoBehaviour
 
     float hp = 3.0f;
     public Image[] hpImage;
+    
+    private bool isColliding = false;
+    private float collisionTimer = 0.0f;
+    private float collisionInterval = 0.5f;
 
     void Awake()
     {
@@ -48,23 +52,77 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Big_Zombie")
+        if (collision.gameObject.CompareTag("Big_Zombie"))
         {
-            hp -= 0.5f;
-            HpImgUpdate();
-            if (hp <= 0.0f)
+            if (!isColliding)
             {
-                Die();
+                hp -= 0.5f;
+                HpImgUpdate();
+                if (hp <= 0.0f)
+                {
+                    Die();
+                }
+                isColliding = true;
             }
         }
-        else if (collision.gameObject.tag == "Big_Demon")
+        else if (collision.gameObject.CompareTag("Big_Demon"))
         {
-            hp -= 1.0f;
-            HpImgUpdate();
-            if (hp <= 0.0f)
+            if (!isColliding)
             {
-                Die();
+                hp -= 1.0f;
+                HpImgUpdate();
+                if (hp <= 0.0f)
+                {
+                    Die();
+                }
+                isColliding = true;
             }
+        }
+    }
+    
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Big_Zombie"))
+        {
+            collisionTimer += Time.deltaTime;
+            if (collisionTimer >= collisionInterval)
+            {
+                hp -= 0.5f;
+                HpImgUpdate();
+                if (hp <= 0.0f)
+                {
+                    Die();
+                }
+                collisionTimer = 0.0f;
+            }
+        }
+        else if (collision.gameObject.CompareTag("Big_Demon"))
+        {
+            collisionTimer += Time.deltaTime;
+            if (collisionTimer >= collisionInterval)
+            {
+                hp -= 1.0f;
+                HpImgUpdate();
+                if (hp <= 0.0f)
+                {
+                    Die();
+                }
+                collisionTimer = 0.0f;
+            }
+        }
+    }
+    
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Big_Zombie"))
+        {
+            isColliding = false;
+            collisionTimer = 0.0f;
+        }
+        else if (collision.gameObject.CompareTag("Big_Demon"))
+        {
+            isColliding = false;
+            collisionTimer = 0.0f;
         }
     }
 
